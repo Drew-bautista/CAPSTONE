@@ -1,8 +1,9 @@
 # ----------- Build Stage ------------
-FROM composer:2.7 as build
+FROM php:8.2.16-cli-alpine3.19 as build
 
-# Install Node.js, npm, and system dependencies
-RUN apk add --no-cache nodejs npm git unzip
+# Install system dependencies, Node.js, npm, and Composer
+RUN apk add --no-cache nodejs npm git unzip curl \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /app
 
