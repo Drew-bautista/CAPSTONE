@@ -17,11 +17,10 @@ COPY . .
 RUN npm install && npm run build
 
 # ----------- Production Stage ------------
-FROM php:8.2-cli
+FROM php:8.2.16-cli-alpine3.19
 
 # Install PHP extensions required by Laravel
-RUN apt-get update \
-    && apt-get install -y libpng-dev libonig-dev libxml2-dev zip unzip git \
+RUN apk add --no-cache libpng-dev oniguruma-dev libxml2-dev zip unzip git \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 WORKDIR /app
