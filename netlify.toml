@@ -1,0 +1,19 @@
+[build]
+  publish = "public"
+  command = "npm run prod || npm run build || yarn build"
+
+default_environment = { PHP_VERSION = "8.2" }
+
+[context.production.environment]
+  APP_ENV = "production"
+  APP_DEBUG = "false"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.php"
+  status = 200
