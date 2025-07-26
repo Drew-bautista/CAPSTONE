@@ -1,5 +1,5 @@
 # ----------- Build Stage ------------
-FROM composer:2.7.4-php8.2 as build
+FROM composer:2.7-php8.2-alpine as build
 
 # Install Node.js, npm, and system dependencies
 RUN apk add --no-cache nodejs npm git unzip
