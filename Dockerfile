@@ -2,8 +2,7 @@
 FROM composer:2.7 as build
 
 # Install Node.js, npm, and system dependencies
-RUN apt-get update \
-    && apt-get install -y nodejs npm git unzip
+RUN apk add --no-cache nodejs npm git unzip
 
 WORKDIR /app
 
