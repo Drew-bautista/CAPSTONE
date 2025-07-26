@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+.env
+vendor
+storage/*.key
+storage/*.log
+storage/framework/cache/data
+storage/framework/sessions
+storage/framework/views
+storage/logs
